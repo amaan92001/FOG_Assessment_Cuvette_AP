@@ -47,7 +47,7 @@ app.get('/api/songs', async (req, res) => {
                 title: path.parse(file).name, 
                 src: `https://fog-assessment-cuvette-ap.onrender.com/songs/${file}`,
                 duration: duration,
-                plays: "407.234.004",
+                plays: "643.786.045",
                 album: 'Thriller 25 Sup...', 
                 img: 'default-image-url.jpg' 
             };
