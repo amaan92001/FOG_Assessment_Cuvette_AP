@@ -86,13 +86,13 @@ const SongRow = ({
 const MusicPlay = () => {
   const theme = useTheme();
   const [songs, setSongs] = useState([]);
-  const duration = 200; // seconds
+  const duration = 200; 
   const [position, setPosition] = React.useState(0);
 
   const [currentSongIndex, setCurrentSongIndex] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const soundRef = useRef(null);
-  const [progress, setProgress] = useState(0); // Track playback progress
+  const [progress, setProgress] = useState(0); 
 
   const intervalRef = useRef()
   useEffect(() => {

@@ -34,26 +34,26 @@ app.get('/api/songs', async (req, res) => {
         const songs = await Promise.all(songFiles.map(async (file, index) => {
             const filePath = path.join(songsDirPath, file);
             
-            // Check if the path is a file and not a directory
+           
             const stat = await fs.promises.stat(filePath);
             if (stat.isDirectory()) {
-                return null; // Skip directories
+                return null;
             }
             
             const metadata = await getSongMetadata(filePath);
-            const duration = metadata.duration ? new Date(metadata.duration * 1000).toISOString().substr(11, 8) : 'Unknown'; // Format duration to HH:mm:ss
+            const duration = metadata.duration ? new Date(metadata.duration * 1000).toISOString().substr(11, 8) : 'Unknown'; 
             return {
                 id: index + 1,
-                title: path.parse(file).name, // Assuming the title is the filename without extension
+                title: path.parse(file).name, 
                 src: `https://fog-assessment-cuvette-ap.onrender.com/songs/${file}`,
                 duration: duration,
-                plays: "407.234.004", // Default plays to 0 or fetch from another source if available
-                album: 'Thriller 25 Sup...', // Default album to 'Unknown' or fetch from another source if available
-                img: 'default-image-url.jpg' // Default image, or fetch if available
+                plays: "407.234.004",
+                album: 'Thriller 25 Sup...', 
+                img: 'default-image-url.jpg' 
             };
         }));
 
-        // Filter out null values in case there were directories
+        
         res.json(songs.filter(song => song !== null));
     } catch (error) {
         console.error('Error reading songs:', error);
