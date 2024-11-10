@@ -96,7 +96,7 @@ const MusicPlay = () => {
 
   const intervalRef = useRef()
   useEffect(() => {
-    fetch("https://fog-assessment.onrender.com/api/songs")
+    fetch("https://fog-assessment-cuvette-ap.onrender.com/api/songs")
       .then((response) => response.json())
       .then((data) => setSongs(data))
       .catch((error) => console.error("Error fetching songs:", error));
